@@ -1,0 +1,533 @@
+/* --- VARIABLES Y RESETEO BASE --- */
+:root {
+    --primary-color: #059669;       /* Verde Esmeralda Base */
+    --primary-hover: #047857;       /* Verde Esmeralda Oscuro */
+    --bg-dark: #0a0f0d;             /* Fondo Carbón Oscuro Profundo */
+    --bg-card: #121a16;            /* Fondo para Tarjetas y Bloques */
+    --bg-alt: #1a2620;              /* Elevación/Secciones Secundarias */
+    --text-main: #f0fdf4;           /* Blanco / Menta Muy Suave */
+    --text-muted: #94a3b8;          /* Gris Claro para Descripciones */
+    --accent: #10b981;              /* Verde Esmeralda Brillante */
+    --border-radius: 12px;
+    --transition: all 0.3s ease;
+    --whatsapp-color: #25d366;
+    --whatsapp-hover: #1da851;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-dark);
+}
+ 
+.container-nav {
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+
+    /* 1. Mantiene la barra fija en la parte superior */
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Asegura que la barra quede por encima de las imágenes y tarjetas */
+
+    /* 2. Fondo traslúcido con color oscuro (85% de opacidad) */
+    background-color: rgba(10, 15, 13, 0.85); 
+
+    /* 3. Efecto de desenfoque al contenido que pasa por debajo (Glassmorphism) */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Soporte para Safari */
+
+    /* 4. Borde inferior sutil para delimitar la barra */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    /* Opcional: Ancho y transición suave */
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+.barra-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.barra-nav .logo{
+    font-size: 18px;
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: bold;
+}
+.barra-nav .logo span{
+    color: var(--accent);
+    font-weight: bold;
+}
+
+.barra-nav ul{
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    list-style-type: none;
+}
+
+.barra-nav ul .link{
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--text-main);
+}
+.barra-nav ul .link:hover{
+    color: var(--bg-alt);
+    transition: var(--transition);
+}
+.contacto{
+    background-color: var(--primary-color);
+    padding: 10px 18px;
+    border-radius: 10px;
+    color: var(--text-main);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.contacto:hover{
+    background-color: var(--primary-hover);
+}
+
+.hero-section{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    padding: 80px 5% 100px;
+    min-height: 80vh;
+    gap: 40px;
+    background-color: var(--bg-dark); /* Arregla el fondo verde gigante */
+    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-card) 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+}
+.content-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+    text-align: left;
+    min-height: auto;
+    padding: 0;
+}
+.badge{
+    background-color: var(--bg-card);
+    color: var(--accent);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    border: 1px solid var(--accent);
+    margin-bottom: 16px;
+}
+
+.content-hero h1{
+    font-size: 3rem;
+    margin: 0 0 10px;
+    color: var(--text-main);
+}
+.name{
+    color: var(--accent);
+}
+
+.content-hero h3{
+    font-size: 1.5rem;
+    color: #cbd5e1;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.content-hero p.descripcion{
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 24px;
+}
+
+.container-buttons{
+    display: flex;
+    gap: 16px;
+}
+
+.container-buttons{
+    justify-content: flex-start;
+}
+
+.container-buttons a{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-1{
+    background-color: var(--primary-color);
+    color: var(--text-main);
+}
+
+.btn-1:hover{
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.btn-2{
+    background-color: var(--bg-alt);
+    color: var(--text-main);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-2:hover{
+    background-color: var(--bg-dark);
+    border-color: var(--accent)
+}
+
+.container-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.img-profile{
+    position: relative;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    padding: 8px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent));
+    box-shadow: 0 10px 30px var(--text-muted)
+}
+
+.img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: var(--bg-card);
+}
+.informacion-perfil {
+    background-color: var(--bg-dark); /* O puedes usar var(--bg-alt) para diferenciar el fondo */
+    padding: 80px 5%;
+}
+
+.info-profile {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.info-profile h2 {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.descripcion-perfil {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 32px;
+}
+
+/* Destacados en blanco brillante dentro del párrafo */
+.descripcion-perfil strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.callout{
+    margin-top: 24px;
+    padding: 20px;
+    background-color: var(--bg-card);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    color: var(--text-main);
+}
+
+.callout .titulo{
+    color: var(--accent);
+    margin-bottom: 8px;
+}
+
+.callout p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.stack-tecnologico{
+    background-color: var(--bg-alt);
+    padding: 100px;
+}
+
+.stack-tecnologico h2{
+    font-size: 2.1rem;
+    text-align: center;
+    font-weight: bold;
+}
+.container-cards{
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 40px;
+}
+
+.card{
+    background-color: var(--bg-card);
+    padding: 30px 20px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.card .icon {
+    font-size: 40px;
+    color: var(--accent);
+    margin-bottom: 12px;
+}
+.container-section{
+    background-color: var(--bg-dark);
+    padding: 100px;
+}
+.container-section h2{
+    text-align: center;
+    font-size: 2.1rem;
+    font-weight: bold;
+}
+.view-proyectos{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 40px;
+}
+
+.proyectos{
+    background-color: var(--bg-card);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 24px;
+}
+
+.img-proye{
+    height: 180px;
+    background-color: #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+
+
+.proyectos h3{
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.proyectos p{
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.tags{
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.tags span {
+    font-size: 0.75rem;
+    background-color: var(--bg-alt);
+    padding: 4px 10px;
+    border-radius: 4px;
+    color: var(--primary-color);
+    border: 1px solid var(--text-muted);
+}
+
+/* --- SECCIÓN CONTACTO --- */
+.contacto-seccion {
+    background-color: var(--bg-alt);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Limitamos el ancho para que no se estire horizontalmente */
+.contacto-container {
+    width: 100%;
+    max-width: 580px; 
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contacto-container h2 {
+    font-size: 2.2rem;
+    color: var(--text-main);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.contacto-container .subtitulo {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+/* Formulario */
+.contacto-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 14px 18px;
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: var(--text-main);
+    font-size: 0.95rem;
+    box-sizing: border-box;
+    outline: none;
+    transition: var(--transition);
+}
+
+.input-field:focus {
+    border-color: var(--accent);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.textarea-field {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Botón Enviar Mensaje */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color); /* Color Azul */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-submit:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-5px);
+}
+
+/* Divisor "O también puedes" */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 28px 0;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.divider span {
+    padding: 0 14px;
+}
+
+/* Botón de WhatsApp */
+.btn-whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 14px;
+    background-color: #25d366; /* Verde WhatsApp */
+    color: #ffffff;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: var(--transition);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1da851;
+    transform: translateY(-5px);
+}
+
+.ws-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.footer{
+    padding: 25px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 900px) {
+    .hero-section {
+        flex-direction: column-reverse; /* La foto sube arriba del texto en móvil */
+        text-align: center;
+    }
+
+    .content-hero {
+        max-width: 100%;
+    }
+
+    .container-buttons {
+        justify-content: center;
+    }
+
+    .img-profile {
+        width: 200px;
+        height: 200px;
+    }
+
+    .nav-links .link, .nav-links .contacto { 
+        display: none; 
+    }
+
+    .container-cards{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .view-proyectos{
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
